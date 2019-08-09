@@ -1,4 +1,6 @@
 # SKU-110K
+#### Eran Goldman* , [Roei Herzig*](https://roeiherz.github.io/) , Aviv Eisenschtat*, [Jacob Goldberger](http://www.eng.biu.ac.il/goldbej/), [Tal Hassner](https://talhassner.github.io/home/)
+
 Dataset and Codebase for CVPR2019 "Precise Detection in Densely Packed Scenes" [[Paper link]](https://arxiv.org/pdf/1904.00853.pdf)
 
 <!---[alt text](figures/teaser_width.jpg)--->
@@ -48,7 +50,7 @@ This implementation is built on top of https://github.com/fizyr/keras-retinanet.
 The SKU110K dataset is provided in csv format compatible with the code CSV parser.
 
 Dependencies include: `keras`, `keras-resnet`, `six`, `scipy`. `Pillow`, `pandas`, `tensorflow-gpu`, `tqdm`
-This repository requires `Keras 2.2.4` or higher, and was tested using `Python 3.6.5` and `OpenCV 4.1`.
+This repository requires `Keras 2.2.4` or higher, and was tested using `Python 3.6.5`, `Python 2.7.6`  and `OpenCV 3.1`.
 
 The output files will be saved under "$HOME"/Documents/SKU110K and have the same structure as in https://github.com/fizyr/keras-retinanet:
 The weight h5 files will are saved in the "snapshot" folder and the tensorboard log files are saved in the "logs" folder.
@@ -89,7 +91,7 @@ e.g.:
 where WEIGHT_FILE is the full path to the h5 file from step (2), and 0<=RATE<=1 computes the confidence as a weighted average between soft and hard scores. 
 
 e.g:
-`nohup env PYTHONPATH="/home/ubuntu/dev/SKU110K" python -u object_detector_retinanet/keras_retinanet/bin/evaluate_iou.py --gpu 3 csv "/home/ubuntu/Documents/SKU110K/snapshot/Thu_May__2_17:10:30_2019/iou_resnet50_csv_07.h5" --hard_score_rate=0.5 | tee predict_sku110k.log`
+`nohup env PYTHONPATH="/home/ubuntu/dev/SKU110K" python -u object_detector_retinanet/keras_retinanet/bin/predict.py --gpu 3 csv "/home/ubuntu/Documents/SKU110K/snapshot/Thu_May__2_17:10:30_2019/iou_resnet50_csv_07.h5" --hard_score_rate=0.5 | tee predict_sku110k.log`
 
 
 The results are saved in CSV format in the "results" folder and drawn in "res_images_iou" folder.
